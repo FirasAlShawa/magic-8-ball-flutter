@@ -26,6 +26,14 @@ class Ball extends StatefulWidget {
 }
 
 class _BallState extends State<Ball> {
+  int ImageRandom = 1;
+
+  void RandomImage() {
+    setState(() {
+      ImageRandom = Random().nextInt(5) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -33,8 +41,10 @@ class _BallState extends State<Ball> {
         children: <Widget>[
           Expanded(
             child: FlatButton(
-              child: Image.asset("images/ball1.png"),
-              onPressed: () {},
+              child: Image.asset("images/ball$ImageRandom.png"),
+              onPressed: () {
+                RandomImage();
+              },
             ),
           ),
         ],
